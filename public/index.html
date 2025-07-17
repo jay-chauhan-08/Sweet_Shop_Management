@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sweet Shop Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <h1>Sweet Shop</h1>
+    <div>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="form-container">
+    <h2>Add here :</h2>
+    <input type="text" id="name" placeholder="Name" />
+    <select id="category">
+      <option value="">-- Select Category --</option>
+      <option value="Chocolate">Chocolate</option>
+      <option value="Candy">Candy</option>
+      <option value="Pastry">Pastry</option>
+      <option value="Nut-Based">Nut-Based</option>
+      <option value="Milk-Based">Milk-Based</option>
+      <option value="Vegetable-Based">Vegetable-Based</option>
+    </select>
+    <input type="number" id="price" placeholder="Price" />
+    <input type="number" id="quantity" placeholder="Quantity" />
+    <button onclick="addSweet()">Add Sweet</button>
+  </div>
+  <div class="search">
+    <h2>Search Sweets :</h2>
+    <div>
+      <input
+      type="text"
+      id="searchName"
+      placeholder="Search here"
+      oninput="handleSearchInput(this)"
+      />
+      <button onclick="searchSweets()">Search</button>
+    </div>
+  </div>
+  
+  <h2 class="items">Items List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>List</th> 
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="sweetTable"></tbody>
+  </table>
+
+  <script src="../src/sweetShop.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
