@@ -68,6 +68,15 @@ class SweetShop {
     sweet.quantity -= quantity;
     return true;
   }
+
+   // Restocks sweets.
+  restockSweet(id, quantity) {
+    const sweet = this.inventory.find(s => s.id === id);
+    if (!sweet) return false;
+    sweet.quantity += quantity;
+    return true;
+  }
+  
 }
 
 // Export for Node or Browser

@@ -66,4 +66,12 @@ describe("SweetShop Management System", () => {
     const success = shop.purchaseSweet(sweet.id, 5);
     expect(success).toBe.false;
   });
+
+  it("should restock sweet", () => {
+    const sweet = shop.addSweet("Kalakand", "Milk-Based", 40, 5);
+    const restocked = shop.restockSweet(sweet.id, 10);
+    expect(restocked).toBe.true;
+    expect(sweet.quantity).toEqual(15);
+  });
+  
 });
