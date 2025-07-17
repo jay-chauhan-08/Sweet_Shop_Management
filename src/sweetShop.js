@@ -39,6 +39,18 @@ class SweetShop {
     this.inventory.splice(index, 1);
     return true;
   }
+
+  // Filters sweets by name/category/price range.
+  searchSweets(filter = {}) {
+    return this.inventory.filter(sweet => {
+      const matchesName = filter.name ? sweet.name.includes(filter.name) : true;
+      const matchesCategory = filter.category ? sweet.category === filter.category : true;
+      const matchesPrice = filter.minPrice != null && filter.maxPrice != null
+        ? sweet.price >= filter.minPrice && sweet.price <= filter.maxPrice
+        : true;
+      return matchesName && matchesCategory && matchesPrice;
+    });
+  }
 }
 
 // Export for Node or Browser

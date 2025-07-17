@@ -39,4 +39,11 @@ describe("SweetShop Management System", () => {
     const sweets = shop.getAllSweets();
      expect(sweets).toHaveLength(2)
   });
+
+  it("should search sweets by category", () => {
+    shop.addSweet("Kaju Katli", "Nut-Based", 50, 20);
+    shop.addSweet("Gulab Jamun", "Milk-Based", 10, 50);
+    const results = shop.searchSweets({ category: "Milk-Based" });
+    expect(results[0].name).toEqual("Gulab Jamun");
+  });
 });
