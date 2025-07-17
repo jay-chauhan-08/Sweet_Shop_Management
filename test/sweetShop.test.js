@@ -46,4 +46,11 @@ describe("SweetShop Management System", () => {
     const results = shop.searchSweets({ category: "Milk-Based" });
     expect(results[0].name).toEqual("Gulab Jamun");
   });
+
+  it("should sort sweets by price descending", () => {
+    shop.addSweet("Barfi", "Milk-Based", 30, 20);
+    shop.addSweet("Kaju Katli", "Nut-Based", 50, 20);
+    const sorted = shop.sortSweets("price", "desc");
+    expect(sorted[0].price).toEqual(50);
+  });
 });

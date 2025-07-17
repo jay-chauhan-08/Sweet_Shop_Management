@@ -51,6 +51,16 @@ class SweetShop {
       return matchesName && matchesCategory && matchesPrice;
     });
   }
+
+  // Sorts sweets by price or name.
+  sortSweets(field = 'price', order = 'asc') {
+    return [...this.inventory].sort((a, b) => {
+      const valA = a[field];
+      const valB = b[field];
+      return order === 'asc' ? valA - valB : valB - valA;
+    });
+  }
+  
 }
 
 // Export for Node or Browser
