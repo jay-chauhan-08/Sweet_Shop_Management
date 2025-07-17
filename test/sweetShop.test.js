@@ -32,4 +32,11 @@ describe("SweetShop Management System", () => {
     const deleted = shop.deleteSweet(sweet.id);
     expect(deleted).toBe.true;
   });
+
+  it("should return all sweets", () => {
+    shop.addSweet("Ladoo", "Nut-Based", 25, 30);
+    shop.addSweet("Barfi", "Milk-Based", 35, 25);
+    const sweets = shop.getAllSweets();
+     expect(sweets).toHaveLength(2)
+  });
 });
