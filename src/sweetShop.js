@@ -31,4 +31,19 @@ class SweetShop {
   getAllSweets() {
     return this.inventory;
   }
+
+   // Deletes a sweet by ID.
+  deleteSweet(id) {
+    const index = this.inventory.findIndex(s => s.id === id);
+    if (index === -1) return false;
+    this.inventory.splice(index, 1);
+    return true;
+  }
+}
+
+// Export for Node or Browser
+if (typeof module !== 'undefined') {
+  module.exports = SweetShop;
+} else {
+  window.SweetShop = SweetShop;
 }

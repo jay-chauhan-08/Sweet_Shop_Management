@@ -12,7 +12,7 @@
  * Created: 16 July 2025
  */
 
-const { expect } = require("chai");
+// const { expect } = require("chai");
 const SweetShop = require("../src/sweetShop");
 
 describe("SweetShop Management System", () => {
@@ -24,6 +24,12 @@ describe("SweetShop Management System", () => {
 
   it("should add a sweet", () => {
     const sweet = shop.addSweet("Gulab Jamun", "Milk-Based", 10, 50);
-    expect(sweet).to.include({ name: "Gulab Jamun", category: "Milk-Based", price: 10, quantity: 50 });
+    expect(sweet).toMatchObject({ name: "Gulab Jamun", category: "Milk-Based", price: 10, quantity: 50 });
+  });
+
+  it("should delete a sweet by ID", () => {
+    const sweet = shop.addSweet("Kaju katli", "Nut-based", 50, 20);
+    const deleted = shop.deleteSweet(sweet.id);
+    expect(deleted).toBe.true;
   });
 });
