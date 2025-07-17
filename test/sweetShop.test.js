@@ -60,4 +60,10 @@ describe("SweetShop Management System", () => {
     expect(success).toBe.true;
     expect(sweet.quantity).toEqual(10);
   });
+
+   it("should not purchase sweet if stock is insufficient", () => {
+    const sweet = shop.addSweet("Rasgulla", "Milk-Based", 25, 2);
+    const success = shop.purchaseSweet(sweet.id, 5);
+    expect(success).toBe.false;
+  });
 });
