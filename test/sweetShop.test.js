@@ -53,4 +53,11 @@ describe("SweetShop Management System", () => {
     const sorted = shop.sortSweets("price", "desc");
     expect(sorted[0].price).toEqual(50);
   });
+
+   it("should purchase sweet if stock available", () => {
+    const sweet = shop.addSweet("Gajar Halwa", "Vegetable-Based", 30, 15);
+    const success = shop.purchaseSweet(sweet.id, 5);
+    expect(success).toBe.true;
+    expect(sweet.quantity).toEqual(10);
+  });
 });

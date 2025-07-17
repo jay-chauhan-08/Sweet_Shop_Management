@@ -60,7 +60,14 @@ class SweetShop {
       return order === 'asc' ? valA - valB : valB - valA;
     });
   }
-  
+
+  // Purchases sweets.
+  purchaseSweet(id, quantity) {
+    const sweet = this.inventory.find(s => s.id === id);
+    if (!sweet || sweet.quantity < quantity) return false;
+    sweet.quantity -= quantity;
+    return true;
+  }
 }
 
 // Export for Node or Browser
